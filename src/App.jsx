@@ -1,0 +1,233 @@
+import { useEffect, useState } from 'react';
+
+const INSTAGRAM = 'https://www.instagram.com/confeitaria_deliiciasdaana/';
+const photo = (id, width = 1200) =>
+  `https://images.unsplash.com/${id}?auto=format&fit=crop&w=${width}&q=85`;
+
+const categories = [
+  {
+    number: '01',
+    name: 'Bolos',
+    subtitle: 'Para celebrar os momentos',
+    image: photo('photo-1578985545062-69928b1d9587', 800),
+    alt: 'Bolo decorado — fotografia ilustrativa',
+  },
+  {
+    number: '02',
+    name: 'Tortas',
+    subtitle: 'Sabores que encantam',
+    image: photo('photo-1488477181946-6428a0291777', 800),
+    alt: 'Torta doce — fotografia ilustrativa',
+  },
+  {
+    number: '03',
+    name: 'Doces & sobremesas',
+    subtitle: 'Um carinho a cada detalhe',
+    image: photo('photo-1499636136210-6f4ee915583e', 800),
+    alt: 'Doces variados — fotografia ilustrativa',
+  },
+];
+
+function Arrow({ diagonal = false }) {
+  return (
+    <svg width="19" height="19" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      {diagonal
+        ? <path d="M5 19 19 5M7 5h12v12" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+        : <path d="M4 12h16m-7-7 7 7-7 7" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />}
+    </svg>
+  );
+}
+
+function Flourish() {
+  return (
+    <svg viewBox="0 0 112 28" fill="none" aria-hidden="true" className="flourish">
+      <path d="M0 14h38m36 0h38M42 14c5-2 8-9 14-9s9 7 14 9c-5 2-8 9-14 9s-9-7-14-9Z" stroke="currentColor" strokeWidth="1.1" />
+      <circle cx="56" cy="14" r="3" fill="currentColor" />
+    </svg>
+  );
+}
+
+function Brand({ footer = false }) {
+  return (
+    <a className={`brand ${footer ? 'brand-footer' : ''}`} href="#inicio" aria-label="Delícias da Ana, voltar ao início">
+      <span className="brand-emblem"><img src="/logo-ana.webp" alt="" /></span>
+      <span className="brand-wordmark">
+        <span className="brand-top">Delícias <i>da Ana</i></span>
+        <span className="brand-bottom">CONFEITARIA</span>
+      </span>
+    </a>
+  );
+}
+
+export default function App() {
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  useEffect(() => {
+    const items = document.querySelectorAll('.reveal');
+    if (!('IntersectionObserver' in window)) {
+      items.forEach((item) => item.classList.add('is-visible'));
+      return;
+    }
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(({ target, isIntersecting }) => {
+        if (isIntersecting) {
+          target.classList.add('is-visible');
+          observer.unobserve(target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -25px 0px' });
+    items.forEach((item) => observer.observe(item));
+    return () => observer.disconnect();
+  }, []);
+
+  const closeMenu = () => setMenuOpen(false);
+
+  return (
+    <>
+      <header className="site-header">
+        <div className="shell header-inner">
+          <Brand />
+          <nav className={`main-nav ${menuOpen ? 'nav-open' : ''}`} aria-label="Navegação principal" id="primary-navigation">
+            <a href="#inicio" onClick={closeMenu}>Início</a>
+            <a href="#essencia" onClick={closeMenu}>Nossa essência</a>
+            <a href="#colecao" onClick={closeMenu}>Nossas delícias</a>
+            <a href="#contato" onClick={closeMenu}>Contato</a>
+          </nav>
+          <a href={INSTAGRAM} target="_blank" rel="noopener noreferrer" className="header-instagram">
+            Instagram <Arrow diagonal />
+          </a>
+          <button
+            type="button"
+            className={`menu-toggle ${menuOpen ? 'is-open' : ''}`}
+            aria-expanded={menuOpen}
+            aria-controls="primary-navigation"
+            aria-label={menuOpen ? 'Fechar menu' : 'Abrir menu'}
+            onClick={() => setMenuOpen(!menuOpen)}
+          >
+            <span /><span />
+          </button>
+        </div>
+      </header>
+
+      <main>
+        <section className="hero" id="inicio">
+          <div className="hero-texture" aria-hidden="true" />
+          <div className="shell hero-grid">
+            <div className="hero-copy reveal">
+              <div className="eyebrow"><span className="eyebrow-line" /> DOCES PARA MOMENTOS ESPECIAIS</div>
+              <h1>Um carinho<br />em forma de<br /><em>doçura.</em></h1>
+              <p>Bolos, tortas, sobremesas e doces para tornar cada ocasião ainda mais especial.</p>
+              <div className="hero-actions">
+                <a className="btn btn-primary" href="#colecao">Conheça nossas delícias <Arrow /></a>
+                <a className="text-link" href={INSTAGRAM} target="_blank" rel="noopener noreferrer">Nosso Instagram <Arrow diagonal /></a>
+              </div>
+              <div className="hero-footnote"><Flourish /><span>Feito para adoçar os bons momentos.</span></div>
+            </div>
+
+            <div className="hero-visual reveal">
+              <span className="hero-art-word" aria-hidden="true">Ana</span>
+              <div className="hero-image-arch">
+                <img
+                  src={photo('photo-1578985545062-69928b1d9587', 1200)}
+                  alt="Bolo de confeitaria em fotografia ilustrativa"
+                  fetchPriority="high"
+                />
+                <div className="image-sheen" />
+              </div>
+              <div className="hero-badge" aria-label="Delícias da Ana, confeitaria">
+                <span>FEITO COM</span>
+                <strong>Carinho</strong>
+                <span>DELÍCIAS DA ANA</span>
+              </div>
+              <span className="image-credit">Imagem ilustrativa</span>
+              <span className="floating-spark spark-one" aria-hidden="true">✳</span>
+              <span className="floating-spark spark-two" aria-hidden="true">✳</span>
+            </div>
+          </div>
+          <div className="hero-side-label" aria-hidden="true">DELICADEZA EM CADA DETALHE —</div>
+        </section>
+
+        <div className="ticker" aria-label="Bolos, tortas, sobremesas e doces">
+          <div className="ticker-track" aria-hidden="true">
+            {Array.from({ length: 4 }).map((_, index) => (
+              <span key={index}>BOLOS <b>✳</b> TORTAS <b>✳</b> SOBREMESAS <b>✳</b> DOCES <b>✳</b></span>
+            ))}
+          </div>
+        </div>
+
+        <section className="essence section-pad" id="essencia">
+          <div className="shell essence-grid">
+            <div className="essence-decoration reveal">
+              <div className="essence-circle">
+                <span className="circle-rim" />
+                <span className="circle-word">delícias</span>
+                <strong>da Ana</strong>
+                <Flourish />
+              </div>
+              <span className="essence-decoration-label">CONFEITARIA · AFETO · SABOR</span>
+            </div>
+            <div className="essence-copy reveal">
+              <span className="section-kicker"><span>01</span> / NOSSA ESSÊNCIA</span>
+              <h2>A vida fica mais bonita quando tem um toque de <em>doçura.</em></h2>
+              <p>Mais que uma sobremesa, um convite para aproveitar os pequenos e grandes momentos. A Delícias da Ana celebra o prazer de compartilhar algo especial.</p>
+              <a href="#colecao" className="underlined-link">Explore nossas delícias <Arrow diagonal /></a>
+            </div>
+          </div>
+        </section>
+
+        <section className="collection section-pad" id="colecao">
+          <div className="shell">
+            <div className="collection-heading reveal">
+              <div>
+                <span className="section-kicker"><span>02</span> / UM UNIVERSO DE SABORES</span>
+                <h2>Escolha a sua próxima<br /><em>doce ocasião.</em></h2>
+              </div>
+              <p>Uma prévia das categorias da confeitaria. As fotografias são ilustrativas até a inclusão das imagens originais da Ana.</p>
+            </div>
+            <div className="collection-grid">
+              {categories.map((item) => (
+                <article className="product-card reveal" key={item.number}>
+                  <div className="product-image">
+                    <img src={item.image} alt={item.alt} loading="lazy" />
+                    <span className="product-number">{item.number} / 03</span>
+                    <span className="photo-tag">Foto ilustrativa</span>
+                  </div>
+                  <div className="product-info">
+                    <div><h3>{item.name}</h3><p>{item.subtitle}</p></div>
+                    <span className="product-arrow" aria-hidden="true"><Arrow diagonal /></span>
+                  </div>
+                </article>
+              ))}
+            </div>
+            <div className="collection-note reveal">A seleção de produtos, fotografias e preços será atualizada com as informações oficiais.</div>
+          </div>
+        </section>
+
+        <section className="contact section-pad" id="contato">
+          <div className="contact-ornament ornament-one" aria-hidden="true">✳</div>
+          <div className="contact-ornament ornament-two" aria-hidden="true">✳</div>
+          <div className="shell contact-inner reveal">
+            <span className="contact-kicker">UM DOCE CONVITE</span>
+            <Flourish />
+            <h2>Tem sempre um bom<br />motivo para <em>adoçar.</em></h2>
+            <p>Conheça a Delícias da Ana e consulte as opções diretamente pelo Instagram.</p>
+            <a href={INSTAGRAM} target="_blank" rel="noopener noreferrer" className="btn btn-light">
+              Conversar pelo Instagram <Arrow diagonal />
+            </a>
+          </div>
+        </section>
+      </main>
+
+      <footer className="site-footer">
+        <div className="shell">
+          <div className="footer-main">
+            <div><Brand footer /><p>Um mundo de doçuras para compartilhar.</p></div>
+            <div className="footer-links"><span>EXPLORE</span><a href="#inicio">Início</a><a href="#essencia">Nossa essência</a><a href="#colecao">Nossas delícias</a></div>
+            <div className="footer-links"><span>ACOMPANHE</span><a href={INSTAGRAM} target="_blank" rel="noopener noreferrer">Instagram ↗</a><a href="#contato">Contato</a></div>
+          </div>
+          <div className="footer-bottom"><span>© {new Date().getFullYear()} Delícias da Ana</span><span>Bolos · Tortas · Sobremesas · Doces</span></div>
+        </div>
+      </footer>
+    </>
+  );
+}
