@@ -5,30 +5,6 @@ const INSTAGRAM = 'https://www.instagram.com/confeitaria_deliiciasdaana/';
 const photo = (id, width = 1200) =>
   `https://images.unsplash.com/${id}?auto=format&fit=crop&w=${width}&q=85`;
 
-const categories = [
-  {
-    number: '01',
-    name: 'Bolos',
-    subtitle: 'Para celebrar os momentos',
-    image: photo('photo-1578985545062-69928b1d9587', 800),
-    alt: 'Bolo decorado — fotografia ilustrativa',
-  },
-  {
-    number: '02',
-    name: 'Tortas',
-    subtitle: 'Sabores que encantam',
-    image: photo('photo-1488477181946-6428a0291777', 800),
-    alt: 'Torta doce — fotografia ilustrativa',
-  },
-  {
-    number: '03',
-    name: 'Doces & sobremesas',
-    subtitle: 'Um carinho a cada detalhe',
-    image: photo('photo-1499636136210-6f4ee915583e', 800),
-    alt: 'Doces variados — fotografia ilustrativa',
-  },
-];
-
 function Arrow({ diagonal = false }) {
   return (
     <svg width="19" height="19" viewBox="0 0 24 24" fill="none" aria-hidden="true">
@@ -90,7 +66,6 @@ export default function App() {
           <Brand />
           <nav className={`main-nav ${menuOpen ? 'nav-open' : ''}`} aria-label="Navegação principal" id="primary-navigation">
             <a href="#inicio" onClick={closeMenu}>Início</a>
-            <a href="#essencia" onClick={closeMenu}>Nossa essência</a>
             <a href="#cardapio" onClick={closeMenu}>Cardápio</a>
             <a href="#contato" onClick={closeMenu}>Contato</a>
           </nav>
@@ -156,54 +131,6 @@ export default function App() {
           </div>
         </div>
 
-        <section className="essence section-pad" id="essencia">
-          <div className="shell essence-grid">
-            <div className="essence-decoration reveal">
-              <div className="essence-circle">
-                <span className="circle-rim" />
-                <span className="circle-word">delícias</span>
-                <strong>da Ana</strong>
-                <Flourish />
-              </div>
-              <span className="essence-decoration-label">CONFEITARIA · AFETO · SABOR</span>
-            </div>
-            <div className="essence-copy reveal">
-              <span className="section-kicker"><span>01</span> / NOSSA ESSÊNCIA</span>
-              <h2>A vida fica mais bonita quando tem um toque de <em>doçura.</em></h2>
-              <p>Mais que uma sobremesa, um convite para aproveitar os pequenos e grandes momentos. A Delícias da Ana celebra o prazer de compartilhar algo especial.</p>
-              <a href="#cardapio" className="underlined-link">Explore nosso cardápio <Arrow diagonal /></a>
-            </div>
-          </div>
-        </section>
-
-        <section className="collection section-pad" id="colecao">
-          <div className="shell">
-            <div className="collection-heading reveal">
-              <div>
-                <span className="section-kicker"><span>02</span> / UM UNIVERSO DE SABORES</span>
-                <h2>Escolha a sua próxima<br /><em>doce ocasião.</em></h2>
-              </div>
-              <p>Conheça o universo da confeitaria. As fotografias são ilustrativas até a inclusão das imagens originais da Ana.</p>
-            </div>
-            <div className="collection-grid">
-              {categories.map((item) => (
-                <article className="product-card reveal" key={item.number}>
-                  <div className="product-image">
-                    <img src={item.image} alt={item.alt} loading="lazy" />
-                    <span className="product-number">{item.number} / 03</span>
-                    <span className="photo-tag">Foto ilustrativa</span>
-                  </div>
-                  <div className="product-info">
-                    <div><h3>{item.name}</h3><p>{item.subtitle}</p></div>
-                    <span className="product-arrow" aria-hidden="true"><Arrow diagonal /></span>
-                  </div>
-                </article>
-              ))}
-            </div>
-            <div className="collection-note reveal">Fotografias ilustrativas. Veja a lista de sabores e valores de bolos no cardápio abaixo.</div>
-          </div>
-        </section>
-
         <OrderSystem />
 
         <section className="contact section-pad" id="contato">
@@ -225,7 +152,7 @@ export default function App() {
         <div className="shell">
           <div className="footer-main">
             <div><Brand footer /><p>Um mundo de doçuras para compartilhar.</p></div>
-            <div className="footer-links"><span>EXPLORE</span><a href="#inicio">Início</a><a href="#essencia">Nossa essência</a><a href="#colecao">Nossas delícias</a><a href="#cardapio">Cardápio</a></div>
+            <div className="footer-links"><span>EXPLORE</span><a href="#inicio">Início</a><a href="#cardapio">Cardápio</a><a href="#contato">Contato</a></div>
             <div className="footer-links"><span>ACOMPANHE</span><a href={INSTAGRAM} target="_blank" rel="noopener noreferrer">Instagram ↗</a><a href="#contato">Contato</a></div>
           </div>
           <div className="footer-bottom"><span>© {new Date().getFullYear()} Delícias da Ana</span><span>Bolos · Tortas · Sobremesas · Doces</span></div>
