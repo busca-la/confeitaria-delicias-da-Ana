@@ -1,0 +1,252 @@
+/* Cardápio real — extraído da arte fornecida pela confeitaria. */
+.cake-menu {
+  color: var(--chocolate);
+  background: #faf1e3;
+  overflow: hidden;
+}
+.cake-menu-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 36px;
+  margin-bottom: 42px;
+}
+.cake-menu h2 {
+  font: 500 clamp(58px, 6vw, 91px)/.92 var(--serif);
+  letter-spacing: -.047em;
+  margin: 28px 0 0;
+  color: var(--chocolate);
+}
+.cake-menu h2 em { color: var(--wine); font-weight: 500; }
+.cake-menu-intro {
+  width: min(310px, 35%);
+  padding-bottom: 6px;
+}
+.cake-menu-intro > span {
+  display: block;
+  font-weight: 700;
+  font-size: 10px;
+  color: var(--wine);
+  letter-spacing: .21em;
+  margin-bottom: 17px;
+}
+.cake-menu-intro p {
+  color: #7b6152;
+  font-size: 13px;
+  line-height: 1.9;
+  margin: 0;
+}
+.menu-board {
+  padding: clamp(28px, 5vw, 64px);
+  border: 1px solid #d9c9b6;
+  background: #fffaf2;
+  box-shadow: 0 24px 50px rgba(79, 52, 34, .055);
+  position: relative;
+}
+.menu-board::after {
+  content: '';
+  position: absolute;
+  inset: 9px;
+  border: 1px solid rgba(119, 29, 43, .10);
+  pointer-events: none;
+}
+.menu-board-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 25px;
+  margin-bottom: 12px;
+  border-bottom: 1px solid rgba(119, 29, 43, .32);
+  color: var(--wine);
+  gap: 22px;
+}
+.menu-board-identity {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font: italic 600 30px/1 var(--serif);
+}
+.menu-board-monogram {
+  display: grid;
+  place-items: center;
+  width: 39px;
+  height: 39px;
+  border-radius: 50%;
+  background: var(--wine);
+  color: #fff8ef;
+  font: 600 27px/.85 var(--serif);
+}
+.menu-board-heading > span {
+  font-size: 10px;
+  letter-spacing: .2em;
+  font-weight: 700;
+  white-space: nowrap;
+}
+.menu-flavors {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-rows: repeat(8, auto);
+  grid-auto-flow: column;
+  gap: 0 56px;
+}
+.menu-flavor {
+  min-width: 0;
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  padding: 19px 0;
+  border-bottom: 1px solid rgba(81, 53, 39, .13);
+}
+.menu-flavor-number {
+  color: #ad9984;
+  font-size: 9px;
+  font-weight: 700;
+  align-self: baseline;
+  flex: 0 0 20px;
+}
+.menu-flavor-name {
+  color: var(--chocolate);
+  font: 500 17px/1.4 var(--serif);
+  letter-spacing: -.01em;
+}
+.menu-flavor-leader {
+  flex: 1;
+  min-width: 5px;
+  height: 1px;
+  border-bottom: 1px dotted rgba(119, 29, 43, .35);
+  align-self: baseline;
+}
+.menu-flavor-value {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: end;
+  flex: 0 0 auto;
+  gap: 1px;
+  white-space: nowrap;
+  color: var(--wine);
+}
+.menu-flavor-value strong {
+  font: 700 15px/1.1 'DM Sans', sans-serif;
+  font-variant-numeric: tabular-nums;
+}
+.menu-flavor-value small {
+  color: #9f786b;
+  font-size: 10px;
+  font-weight: 500;
+}
+.menu-board-signature {
+  color: var(--wine);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  padding-top: 27px;
+  margin-top: 20px;
+  border-top: 1px solid rgba(119, 29, 43, .32);
+  font-size: 9px;
+  letter-spacing: .2em;
+  font-weight: 700;
+}
+.menu-additional {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0,1fr));
+  margin-top: 46px;
+  gap: 28px;
+}
+.menu-additional-item {
+  min-width: 0;
+  padding: 25px 0 5px;
+  border-top: 1px solid rgba(119, 29, 43, .4);
+}
+.menu-additional-index {
+  font-size: 9px;
+  letter-spacing: .22em;
+  font-weight: 700;
+  color: var(--wine);
+}
+.menu-additional-item h3 {
+  font: 600 33px/1 var(--serif);
+  letter-spacing: -.025em;
+  margin: 19px 0 12px;
+}
+.menu-additional-item p {
+  color: #756052;
+  font-size: 12px;
+  line-height: 1.85;
+  margin: 0;
+}
+.menu-order {
+  margin-top: 46px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  border: 1px solid rgba(119, 29, 43, .20);
+  padding: 22px 26px;
+  background: #f0e2cd;
+}
+.menu-order p {
+  color: #735343;
+  line-height: 1.7;
+  font-size: 12px;
+  margin: 0;
+}
+.menu-order p strong {
+  color: var(--chocolate);
+  font-weight: 700;
+}
+.menu-order-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 17px;
+  flex: 0 0 auto;
+  min-height: 48px;
+  background: var(--wine);
+  color: #fff8ec;
+  padding: 0 19px;
+  font-size: 11px;
+  font-weight: 700;
+  transition: transform .25s, background .25s;
+}
+.menu-order-link:hover {
+  background: var(--wine-dark);
+  transform: translateY(-2px);
+}
+.menu-order-link svg { width: 16px; height: 16px; }
+@media (max-width: 1000px) {
+  .menu-board { padding: 34px 28px; }
+  .menu-flavors { gap: 0 28px; }
+  .menu-flavor { gap: 5px; }
+  .menu-flavor-name { font-size: 15px; }
+  .menu-flavor-value strong { font-size: 13px; }
+}
+@media (max-width: 760px) {
+  .cake-menu-heading { flex-direction: column; align-items: start; gap: 22px; }
+  .cake-menu h2 { font-size: clamp(56px, 11vw, 78px); }
+  .cake-menu-intro { width: min(100%,420px); }
+  .menu-board { padding: 29px 23px; }
+  .menu-board-heading { margin-bottom: 6px; }
+  .menu-flavors { grid-template-columns: 1fr; grid-template-rows: none; grid-auto-flow: row; }
+  .menu-flavor { padding: 16px 0; }
+  .menu-flavor-name { font-size: 19px; }
+  .menu-flavor-value strong { font-size: 14px; }
+  .menu-additional { grid-template-columns: 1fr; gap: 10px; margin-top: 37px; }
+  .menu-additional-item { padding: 20px 0 18px; }
+  .menu-additional-item h3 { margin-top: 14px; }
+  .menu-order { flex-direction: column; align-items: stretch; margin-top: 25px; }
+  .menu-order-link { align-self: start; }
+}
+@media (max-width: 440px) {
+  .cake-menu h2 { font-size: clamp(51px, 13vw, 69px); }
+  .menu-board { padding: 22px 17px; }
+  .menu-board-identity { font-size: 25px; gap: 7px; }
+  .menu-board-monogram { width: 32px; height: 32px; font-size: 23px; }
+  .menu-board-heading > span { font-size: 8px; letter-spacing: .08em; }
+  .menu-flavor-number { flex-basis: 17px; }
+  .menu-flavor-name { font-size: 16px; }
+  .menu-flavor { gap: 5px; }
+  .menu-flavor-value strong { font-size: 12px; }
+  .menu-board-signature { font-size: 8px; letter-spacing: .05em; }
+  .menu-order { padding: 18px; }
+}
