@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import CakeMenu from './components/CakeMenu.jsx';
+import OrderSystem from './components/OrderSystem.jsx';
 
 const INSTAGRAM = 'https://www.instagram.com/confeitaria_deliiciasdaana/';
 const photo = (id, width = 1200) =>
@@ -204,7 +204,7 @@ export default function App() {
           </div>
         </section>
 
-        <CakeMenu />
+        <OrderSystem />
 
         <section className="contact section-pad" id="contato">
           <div className="contact-ornament ornament-one" aria-hidden="true">✳</div>
