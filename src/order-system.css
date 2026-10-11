@@ -1,7 +1,7 @@
 /* Sistema de pedidos da Delícias da Ana — visual independente da tapiocaria */
 .order-section {
-  background: #000000;
-  color: var(--cream);
+  background: #f8eedf;
+  color: var(--chocolate);
 }
 .order-heading {
   display: flex;
@@ -381,17 +381,3 @@
 @media (prefers-reduced-motion: reduce) {
   .order-product, .order-add, .order-cart-fab, .order-more { transition: none; }
 }
-
-/* Cardápio integrado ao fundo preto; cartões claros seguem legíveis. */
-.order-heading h2, .order-extras h3 { color: var(--cream); }
-.order-heading h2 em, .order-heading-detail span, .order-extras span,
-.order-tab:hover, .order-tab-selected { color: var(--wine-on-dark); }
-.order-heading p, .order-heading-detail strong, .order-meta,
-.order-tab, .order-pagination, .order-footnote, .order-extras p {
-  color: var(--on-dark-muted);
-}
-.order-tab:hover, .order-tab.order-tab-selected { color: var(--wine-on-dark); }
-.order-tab span, .order-more { color: var(--wine-on-dark); border-color: var(--wine-on-dark); }
-.order-tabs, .order-heading-detail, .order-extras > div { border-color: var(--line); }
-.order-consult { color: var(--chocolate); }
-.order-consult .section-kicker { color: var(--wine); }
