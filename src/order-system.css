@@ -381,3 +381,137 @@
 @media (prefers-reduced-motion: reduce) {
   .order-product, .order-add, .order-cart-fab, .order-more { transition: none; }
 }
+
+/* Acabamento premium arredondado — cardápio e sacola */
+.order-section {
+  background: radial-gradient(circle at 100% 0%,rgba(255,255,255,.52),transparent 40%),#f8eedf;
+}
+.order-heading-detail {
+  border: 1px solid rgba(119,29,43,.14);
+  border-radius: var(--radius-md);
+  background: rgba(255,251,245,.68);
+  box-shadow: 0 10px 32px rgba(81,53,39,.05);
+  padding: 19px 23px;
+}
+.order-tabs {
+  width: fit-content;
+  max-width: 100%;
+  padding: 7px;
+  border: 1px solid rgba(119,29,43,.15);
+  border-radius: 26px;
+  background: rgba(255,251,245,.75);
+  box-shadow: 0 7px 24px rgba(81,53,39,.045);
+  gap: 6px;
+}
+.order-tab {
+  padding: 13px 20px;
+  border-radius: 999px;
+  transition: color .2s,background .2s,box-shadow .2s;
+}
+.order-tab:hover { background:rgba(119,29,43,.07); }
+.order-tab-selected, .order-tab-selected:hover {
+  background: var(--wine);
+  color: var(--cream-soft);
+  box-shadow: 0 5px 15px rgba(119,29,43,.16);
+}
+.order-tab-selected:after { display: none; }
+.order-tab-selected span, .order-tab-selected:hover span {
+  color: var(--cream-soft);
+  border-color: rgba(255,248,236,.5);
+}
+.order-grid { gap: 18px; }
+.order-product {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-md);
+  border-color: rgba(119,29,43,.14);
+  background: radial-gradient(circle at 100% 0%,rgba(227,190,155,.17),transparent 48%),#fffbf5;
+  box-shadow: 0 8px 24px rgba(81,53,39,.045);
+}
+.order-product::before {
+  content:'';
+  position:absolute;
+  top:0;
+  left:24px;
+  width:58px;
+  height:3px;
+  background:var(--wine);
+  opacity:.40;
+  border-radius:0 0 9px 9px;
+}
+.order-product:hover { box-shadow: 0 17px 42px rgba(81,53,39,.11); }
+.order-product-top span:last-child {
+  color: var(--wine);
+  background: rgba(119,29,43,.055);
+  border:1px solid rgba(119,29,43,.11);
+  border-radius:999px;
+  padding:7px 10px;
+}
+.order-add { box-shadow:0 5px 12px rgba(119,29,43,.14); }
+.order-add:hover { box-shadow:0 7px 18px rgba(119,29,43,.24); }
+.order-quantity {
+  border-radius:999px;
+  background:#fff8ee;
+  overflow:hidden;
+}
+.order-more { border-radius:999px; }
+.order-consult {
+  background:radial-gradient(circle at 100% 0%,rgba(245,232,211,.75),transparent 48%),#fffaf2;
+  border-radius:var(--radius-lg);
+  box-shadow:var(--shadow-soft);
+}
+.order-extras { gap:16px; }
+.order-extras > div {
+  position:relative;
+  padding:28px 26px 26px;
+  border:1px solid rgba(119,29,43,.13);
+  border-radius:var(--radius-md);
+  background:rgba(255,251,245,.65);
+  box-shadow:0 9px 28px rgba(81,53,39,.045);
+}
+.order-extras > div::before {
+  content:'';
+  position:absolute;
+  right:24px;
+  top:27px;
+  width:7px;
+  height:7px;
+  border-radius:50%;
+  background:var(--wine);
+  opacity:.45;
+}
+.order-extras h3 { font-size:35px; }
+.order-cart-fab {
+  border-radius:999px;
+  box-shadow:0 15px 40px rgba(54,21,22,.21);
+}
+.order-cart-icon {
+  position:relative;
+  display:grid;
+  place-items:center;
+  width:42px;
+  height:42px;
+  flex:0 0 42px;
+  border:1px solid rgba(255,248,236,.3);
+  border-radius:50%;
+  background:rgba(255,248,236,.12);
+}
+.order-drawer { border-radius:var(--radius-lg) 0 0 var(--radius-lg); }
+.order-drawer-close { border-radius:50%; }
+.order-fields input,
+.order-fields select,
+.order-notes textarea,
+.order-manual-copy textarea { border-radius:var(--radius-sm); }
+.order-checkout-primary,
+.order-checkout-secondary { border-radius:999px; }
+.order-checkout-primary { box-shadow:0 8px 19px rgba(119,29,43,.12); }
+@media (max-width:760px) {
+  .order-tab { padding:12px 16px; }
+  .order-tabs { gap:5px; border-radius:var(--radius-md); }
+  .order-extras > div { padding:24px 23px; }
+}
+@media (max-width:490px) {
+  .order-tab { padding:11px 14px; }
+  .order-tabs { width:100%; }
+  .order-drawer { border-radius:0; }
+}
