@@ -148,7 +148,7 @@ export default function OrderSystem() {
       <div className="shell">
         <div className="order-heading reveal">
           <div>
-            <span className="section-kicker"><span>03</span> / CARDÁPIO DA ANA</span>
+            <span className="section-kicker"><span>01</span> / CARDÁPIO DA ANA</span>
             <h2 id="order-title">Escolha seu<br /><em>doce favorito.</em></h2>
             <p>Explore os sabores, escolha os bolos e monte sua sacola para consultar a encomenda.</p>
           </div>
