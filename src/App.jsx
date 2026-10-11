@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import CakeMenu from './components/CakeMenu.jsx';
 
 const INSTAGRAM = 'https://www.instagram.com/confeitaria_deliiciasdaana/';
 const photo = (id, width = 1200) =>
@@ -90,7 +91,7 @@ export default function App() {
           <nav className={`main-nav ${menuOpen ? 'nav-open' : ''}`} aria-label="Navegação principal" id="primary-navigation">
             <a href="#inicio" onClick={closeMenu}>Início</a>
             <a href="#essencia" onClick={closeMenu}>Nossa essência</a>
-            <a href="#colecao" onClick={closeMenu}>Nossas delícias</a>
+            <a href="#cardapio" onClick={closeMenu}>Cardápio</a>
             <a href="#contato" onClick={closeMenu}>Contato</a>
           </nav>
           <a href={INSTAGRAM} target="_blank" rel="noopener noreferrer" className="header-instagram">
@@ -118,7 +119,7 @@ export default function App() {
               <h1>Um carinho<br />em forma de<br /><em>doçura.</em></h1>
               <p>Bolos, tortas, sobremesas e doces para tornar cada ocasião ainda mais especial.</p>
               <div className="hero-actions">
-                <a className="btn btn-primary" href="#colecao">Conheça nossas delícias <Arrow /></a>
+                <a className="btn btn-primary" href="#cardapio">Ver cardápio <Arrow /></a>
                 <a className="text-link" href={INSTAGRAM} target="_blank" rel="noopener noreferrer">Nosso Instagram <Arrow diagonal /></a>
               </div>
               <div className="hero-footnote"><Flourish /><span>Feito para adoçar os bons momentos.</span></div>
@@ -170,7 +171,7 @@ export default function App() {
               <span className="section-kicker"><span>01</span> / NOSSA ESSÊNCIA</span>
               <h2>A vida fica mais bonita quando tem um toque de <em>doçura.</em></h2>
               <p>Mais que uma sobremesa, um convite para aproveitar os pequenos e grandes momentos. A Delícias da Ana celebra o prazer de compartilhar algo especial.</p>
-              <a href="#colecao" className="underlined-link">Explore nossas delícias <Arrow diagonal /></a>
+              <a href="#cardapio" className="underlined-link">Explore nosso cardápio <Arrow diagonal /></a>
             </div>
           </div>
         </section>
@@ -182,7 +183,7 @@ export default function App() {
                 <span className="section-kicker"><span>02</span> / UM UNIVERSO DE SABORES</span>
                 <h2>Escolha a sua próxima<br /><em>doce ocasião.</em></h2>
               </div>
-              <p>Uma prévia das categorias da confeitaria. As fotografias são ilustrativas até a inclusão das imagens originais da Ana.</p>
+              <p>Conheça o universo da confeitaria. As fotografias são ilustrativas até a inclusão das imagens originais da Ana.</p>
             </div>
             <div className="collection-grid">
               {categories.map((item) => (
@@ -199,9 +200,11 @@ export default function App() {
                 </article>
               ))}
             </div>
-            <div className="collection-note reveal">A seleção de produtos, fotografias e preços será atualizada com as informações oficiais.</div>
+            <div className="collection-note reveal">Fotografias ilustrativas. Veja a lista de sabores e valores de bolos no cardápio abaixo.</div>
           </div>
         </section>
+
+        <CakeMenu />
 
         <section className="contact section-pad" id="contato">
           <div className="contact-ornament ornament-one" aria-hidden="true">✳</div>
@@ -210,7 +213,7 @@ export default function App() {
             <span className="contact-kicker">UM DOCE CONVITE</span>
             <Flourish />
             <h2>Tem sempre um bom<br />motivo para <em>adoçar.</em></h2>
-            <p>Conheça a Delícias da Ana e consulte as opções diretamente pelo Instagram.</p>
+            <p>Escolha seu sabor favorito e consulte sua encomenda diretamente pelo Instagram.</p>
             <a href={INSTAGRAM} target="_blank" rel="noopener noreferrer" className="btn btn-light">
               Conversar pelo Instagram <Arrow diagonal />
             </a>
@@ -222,7 +225,7 @@ export default function App() {
         <div className="shell">
           <div className="footer-main">
             <div><Brand footer /><p>Um mundo de doçuras para compartilhar.</p></div>
-            <div className="footer-links"><span>EXPLORE</span><a href="#inicio">Início</a><a href="#essencia">Nossa essência</a><a href="#colecao">Nossas delícias</a></div>
+            <div className="footer-links"><span>EXPLORE</span><a href="#inicio">Início</a><a href="#essencia">Nossa essência</a><a href="#colecao">Nossas delícias</a><a href="#cardapio">Cardápio</a></div>
             <div className="footer-links"><span>ACOMPANHE</span><a href={INSTAGRAM} target="_blank" rel="noopener noreferrer">Instagram ↗</a><a href="#contato">Contato</a></div>
           </div>
           <div className="footer-bottom"><span>© {new Date().getFullYear()} Delícias da Ana</span><span>Bolos · Tortas · Sobremesas · Doces</span></div>
