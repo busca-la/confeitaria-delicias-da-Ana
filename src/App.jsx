@@ -110,11 +110,6 @@ export default function App() {
                 />
                 <div className="image-sheen" />
               </div>
-              <div className="hero-badge" aria-label="Delícias da Ana, confeitaria">
-                <span>FEITO COM</span>
-                <strong>Carinho</strong>
-                <span>DELÍCIAS DA ANA</span>
-              </div>
               <span className="image-credit">Imagem ilustrativa</span>
               <span className="floating-spark spark-one" aria-hidden="true">✳</span>
               <span className="floating-spark spark-two" aria-hidden="true">✳</span>
