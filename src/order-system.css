@@ -2,8 +2,6 @@
 .order-section {
   background: #f8eedf;
   color: var(--chocolate);
-  isolation: isolate;
-  overflow: clip;
 }
 .order-heading {
   display: flex;
